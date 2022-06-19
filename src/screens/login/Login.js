@@ -1,18 +1,35 @@
 import React from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {Text, View, TouchableOpacity, TextInput} from 'react-native';
+import useLogin from './useLogin';
 
 export default function Login() {
-  const navigation = useNavigation();
-  const navigateHandler = () => {
-    navigation.goBack();
-  };
+  const {email, password, loginHandler, setEmail, setPassword, navigationHandler} = useLogin();
   return (
     <View style={{flex: 1}}>
       <Text> Login Screen </Text>
-      <TouchableOpacity onPress={navigateHandler}>
-        <Text>Go to back to Home screen</Text>
+
+      <TextInput
+        onChangeText={setEmail}
+        value={email}
+        placeholder="enter email"
+      />
+
+      <TextInput
+        onChangeText={setPassword}
+        value={password}
+        placeholder="enter password"
+      />
+
+      <TouchableOpacity onPress={loginHandler}>
+        <Text>sign in</Text>
       </TouchableOpacity>
+
+
+      <TouchableOpacity onPress={navigationHandler}>
+        <Text>Don't have an account? do signup</Text>
+      </TouchableOpacity>
+
+
     </View>
   );
 }

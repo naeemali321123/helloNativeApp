@@ -1,10 +1,15 @@
 import {useSelector, useDispatch} from 'react-redux';
+import { doLogout } from '../../store/authSlicer';
 import {incremented, decremented, reset} from '../../store/CounterSlicer';
 
 export default function useHome() {
   const count = useSelector(store => store.counter.count);
 
   const dispatch = useDispatch();
+
+  const logoutHandler = () => {
+    dispatch(doLogout())
+  } 
 
   const doIncreament = () => {
     dispatch(incremented());
@@ -22,5 +27,6 @@ export default function useHome() {
     doIncreament,
     doDecrement,
     doReset,
+    logoutHandler
   };
 }

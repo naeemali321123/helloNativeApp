@@ -3,7 +3,7 @@ import {Text, View, TouchableOpacity} from 'react-native';
 import useHome from './useHome';
 
 export default function Home() {
-  const {count, doDecrement, doIncreament, doReset} = useHome();
+  const {count, doDecrement, doIncreament, logoutHandler, doReset} = useHome();
 
   return (
     <View>
@@ -20,6 +20,10 @@ export default function Home() {
 
       <TouchableOpacity onPress={doReset}>
         <Text>Reset</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={logoutHandler}>
+        <Text>logout</Text>
       </TouchableOpacity>
     </View>
   );

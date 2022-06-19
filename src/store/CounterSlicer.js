@@ -2,9 +2,9 @@ import {createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 
 const fetchUserById = createAsyncThunk(
-  'users/fetchByIdStatus',
+  'users/fetchByIdgStatus',
   async (userId) => {
-    const response = await userAPI.fetchById(userId)
+    const response = await userAPI.fetchById(1)
     return response.data
   }
 )
